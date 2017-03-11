@@ -6,8 +6,10 @@
     "editor.fontFamily": "DejaVuSansMonoForPowerline NF",
     "editor.fontSize": 19,
     "editor.fontLigatures": true,
+    // Fix the bug on Blade Not Highlighting pair html tag
     "files.associations": {
-    "*.vue": "vue"
+    "*.vue": "vue",
+    "*.blade.php": "html"
     },
     "emmet.syntaxProfiles": {
         // I disable Blade Since im Using Vue Template
@@ -35,8 +37,8 @@
         "blade"
     ],
 
-    // Fix the bug on Blade Not Highlighting pair html tag
-    "files.associations": { "*.blade.php": "html" },
+    
+
     // Exclude Vendor Folders During Search and Replace
     "files.watcherExclude": {
     "**/vendor/**": true
