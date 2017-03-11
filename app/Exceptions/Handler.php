@@ -48,6 +48,11 @@ class Handler extends ExceptionHandler
         if ($request->is('api/*')) {
         app('Barryvdh\Cors\Stack\CorsService')->addActualRequestHeaders($response, $request);
         }
+        if ($exception instanceof Tymon\JWTAuth\Exceptions\TokenExpiredException) {
+        return response()->json(['token_expired'], $exception->getStatusCode());
+        } else if ($exception instanceof Tymon\JWTAuth\Exceptions\TokenInvalidException) {
+        return response()->json(['token_invalid'], $exception->getStatusCode());
+        }
         return $response;
 
     }
