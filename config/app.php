@@ -169,6 +169,7 @@ return [
         Barryvdh\Cors\ServiceProvider::class,
 	    Laravel\Tinker\TinkerServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
         
         //
 
