@@ -1,18 +1,32 @@
 <?php
 
-use Illuminate\Http\Request;
+$api = app('Dingo\Api\Routing\Router');
+
 
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| User Api Auth Protect Route
+| Use Binding for Route Model Binding
 |--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+$api->version('v1',['middleware' => ['api.auth', 'bindings'], 'scopes' => ['read_user_data']], function ($api) {
+        $api->get('users', ['as' => 'users.index', 'uses' => 'Api\V1\Users\Controllers\UsersController@index']);
+        $api->get('users/{id}', ['as' => 'users.show', 'uses' => 'Api\V1\Users\Controllers\UsersController@show']);
+});
+
+/*
+|--------------------------------------------------------------------------
+| Auth Api
+|--------------------------------------------------------------------------
+|
+*/
+$api->version('v1', function ($api) {
+$api->group(['prefix' => 'auth'], function($api) {
+        $api->post('signup', 'Api\V1\Auth\Controllers\SignUpController@signUp');
+        $api->post('login', 'Api\V1\Auth\Controllers\LoginController@login');
+        $api->post('recovery', 'Api\V1\Auth\Controllers\ForgotPasswordController@sendResetEmail');
+        $api->post('reset', 'Api\V1\Auth\Controllers\ResetPasswordController@resetPassword');
+    });
+});

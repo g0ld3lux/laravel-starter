@@ -170,6 +170,7 @@ return [
 	    Laravel\Tinker\TinkerServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Silber\Bouncer\BouncerServiceProvider::class,
+        Dingo\Api\Provider\LaravelServiceProvider::class,
         
         //
 
@@ -181,6 +182,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Vinkla\Hashids\HashidsServiceProvider::class,
 
     ],
 
@@ -231,6 +233,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'Bouncer' => Silber\Bouncer\BouncerFacade::class,
+        'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
 
     ],
 
