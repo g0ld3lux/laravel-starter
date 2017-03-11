@@ -71,6 +71,17 @@ npm run hot
 npm run watch
 ```
 
+
+## Migrations
+
+Use Sqlite For Local Dev
+
+```
+php artisan migrate --seed
+```
+
+For Production You May Want to Use MYSQL Or PostgreSQL
+
 Visit `http://localhost:3000`, It works!
 
 START CODING! Beatiful and Elegant Apps!
@@ -78,4 +89,14 @@ START CODING! Beatiful and Elegant Apps!
 
 
 ## More
+
+Adding Task Scheduler Using Cron job
+```
+crontab -e
+```
+Add this Line of Code
+``
+
+* * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
+```
 

@@ -10,9 +10,6 @@
         "laravel/tinker": "^1.0",
         "doctrine/dbal": "^2.5",
         "guzzlehttp/guzzle": "^6.2",
-        "laracasts/flash": "^2.0",
-        "pda/pheanstalk": "^3.1",
-        "predis/predis": "^1.1",
         "silber/bouncer": "v1.0.0-beta.2",
         "tymon/jwt-auth": "0.5.*",
         "barryvdh/laravel-cors": "^0.8.6"

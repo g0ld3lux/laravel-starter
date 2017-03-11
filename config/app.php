@@ -169,7 +169,7 @@ return [
         Barryvdh\Cors\ServiceProvider::class,
 	    Laravel\Tinker\TinkerServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
-        Laracasts\Flash\FlashServiceProvider::class,
+        Silber\Bouncer\BouncerServiceProvider::class,
         
         //
 
@@ -230,6 +230,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'Bouncer' => Silber\Bouncer\BouncerFacade::class,
 
     ],
 
