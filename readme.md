@@ -62,6 +62,45 @@ composer install
 npm install / yarn install
 ```
 
+## Setting Your .env
+
+Configure Your .env 
+Most Notably Set yor Mail Driver
+```
+APP_ENV=local
+APP_NAME="Laravel Dev"
+APP_KEY=base64:ExExqfImrGk+wFJg/IrePYV0yrES5f84ojB7dBvvczE=
+APP_DEBUG=true
+APP_LOG_LEVEL=debug
+APP_URL=http://localhost
+APP_DOMAIN=laravel.dev
+
+API_DEBUG=true
+API_STANDARDS_TREE=x
+API_SUBTYPE=app
+API_PREFIX=api
+API_VERSION=v1
+API_NAME="My API"
+SIGN_UP_RELEASE_TOKEN=true
+PASSWORD_RESET_RELEASE_TOKEN=true
+JWT_SECRET=aYLINRYJugcmNYoZ8xDVJUh2EcibPduu
+
+DB_CONNECTION=sqlite
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_DRIVER=sync
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=
+MAIL_PASSWORD=
+```
+
 ## Dev Workflow
 
 Enable Hot Reloading & Browserync
@@ -88,7 +127,7 @@ START CODING! Beatiful and Elegant Apps!
 
 
 
-## More
+## Jobs
 
 Adding Task Scheduler Using Cron job
 ```
@@ -102,7 +141,7 @@ Add this Line of Code
 ```
 
 
-### Error For During Reset
+### Possible Error
 
 Note: You need to Set Your Mail Driver in .env
 
