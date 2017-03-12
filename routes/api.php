@@ -3,22 +3,34 @@
 $api = app('Dingo\Api\Routing\Router');
 
 
+
 /*
 |--------------------------------------------------------------------------
-| User Api Auth Protect Route
-| Use Binding for Route Model Binding
+| Our Main Api Domain
+| Avoid Showing the Default Site Content 
 |--------------------------------------------------------------------------
 |
 */
+$api->version('v1', function ($api) {
+$api->get('/', ['as' => 'api.index', 'uses' => 'Api\DomainController@index']);
+});
 
-$api->version('v1',['middleware' => ['api.auth', 'bindings'], 'scopes' => ['read_user_data']], function ($api) {
+/*
+|--------------------------------------------------------------------------
+| Api Auth - Makes the Route Protected , you can verify it using artisan api:routes
+| JWT Auth - This will check the header and query string (as explained above) for the presence of a token
+| Use Bindings for Route Model Binding
+|--------------------------------------------------------------------------
+|
+*/
+$api->version('v1',['middleware' => ['api.auth', 'bindings','jwt.auth'], 'scopes' => ['read_user_data']], function ($api) {
         $api->get('users', ['as' => 'users.index', 'uses' => 'Api\V1\Users\Controllers\UsersController@index']);
         $api->get('users/{id}', ['as' => 'users.show', 'uses' => 'Api\V1\Users\Controllers\UsersController@show']);
 });
 
 /*
 |--------------------------------------------------------------------------
-| Auth Api
+| Auth Api , For Guest
 |--------------------------------------------------------------------------
 |
 */

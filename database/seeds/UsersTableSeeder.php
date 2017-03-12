@@ -19,10 +19,10 @@ class UsersTableSeeder extends Seeder
         });
 
         $user = User::create([
-            'email' => 'admin@mysite.io',
-            'first_name' => 'John',
-            'last_name' => 'Doe',
-            'password' => bcrypt('adminpass')
+            'email' => 'admin@laravel.dev',
+            'first_name' => 'Taylor',
+            'last_name' => 'Otwell',
+            'password' => 'password'
         ]);
         \Bouncer::assign('admin')->to($user);
 
