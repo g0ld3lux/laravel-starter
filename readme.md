@@ -2,7 +2,7 @@
 
 Laravel Project with Vue2 and [Element](https://github.com/ElemeFE/element)
 
-## Technology In Use
+## To do List To implement
 
  - [x] Uses Laravel Latest 5.4
 
@@ -14,15 +14,15 @@ Laravel Project with Vue2 and [Element](https://github.com/ElemeFE/element)
 
  - [x] Uses Element UI
 
- - [x] Vuex State Management Ready
+ - [ ] Vuex State Management Ready
 
- - [x] SPA Using Vue Router
+ - [ ] SPA Using Vue Router
 
  - [x] JWT Auth
 
  - [x] Dingo Api
 
- - [x] ACL Ready
+ - [ ] ACL Ready
 
  - [x] Webpack/Laravel Mix For Assets Management
 
