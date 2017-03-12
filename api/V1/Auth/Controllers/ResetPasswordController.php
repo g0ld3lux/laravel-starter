@@ -3,7 +3,7 @@
 namespace Api\V1\Auth\Controllers;
 
 use Config;
-use App\ModelsUser;
+use App\Models\User;
 use Tymon\JWTAuth\JWTAuth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Password;
@@ -24,7 +24,7 @@ class ResetPasswordController extends Controller
             throw new HttpException(500);
         }
 
-        if(!Config::get('boilerplate.reset_password.release_token')) {
+        if(!Config::get('auth_scaffold.reset_password.release_token')) {
             return response()->json([
                 'status' => 'ok',
             ]);
@@ -72,5 +72,6 @@ class ResetPasswordController extends Controller
     {
         $user->password = $password;
         $user->save();
+
     }
 }
