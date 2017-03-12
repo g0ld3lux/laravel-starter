@@ -14,7 +14,7 @@ class LoginController extends Controller
     public function login(LoginRequest $request, JWTAuth $auth)
     {
         $credentials = $request->only(['email', 'password']);
-        
+
         try {
             $token = $auth->attempt($credentials);
 
