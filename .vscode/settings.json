@@ -43,6 +43,7 @@
         "**/vendor/**": true
     },
     "stylelint.enable": true,
-    "css.validate": false
+    "css.validate": false,
+    "eslint.autoFixOnSave": true
 
 }
