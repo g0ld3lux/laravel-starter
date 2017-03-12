@@ -26,7 +26,7 @@ $api->version('v1', function ($api) {
 $api->group(['prefix' => 'auth'], function($api) {
         $api->post('signup', 'Api\V1\Auth\Controllers\SignUpController@signUp');
         $api->post('login', 'Api\V1\Auth\Controllers\LoginController@login');
-        $api->post('recovery', 'Api\V1\Auth\Controllers\ForgotPasswordController@sendResetEmail');
+        $api->post('recover', 'Api\V1\Auth\Controllers\ForgotPasswordController@sendResetEmail');
         $api->post('reset', 'Api\V1\Auth\Controllers\ResetPasswordController@resetPassword');
     });
 });

@@ -95,8 +95,20 @@ Adding Task Scheduler Using Cron job
 crontab -e
 ```
 Add this Line of Code
-``
+
+```
 
 * * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
 ```
 
+
+### Error For During Reset
+
+Note: You need to Set Your Mail Driver in .env
+
+```
+"message": "Expected response code 250 but got code \"530\", with message \"530 5.7.1 Authentication required\r\n\"",
+  "code": 530,
+  "status_code": 500,
+  
+```

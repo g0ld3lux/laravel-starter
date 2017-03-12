@@ -56,9 +56,10 @@ return [
     */
 
     'from' => [
-        'address' => 'hello@example.com',
-        'name' => 'Example',
+        'address' => env('MAIL_ADDRESS',' admin@'.env('APP_DOMAIN','laravel.dev')),
+        'name' => env('APP_NAME', 'Your Developer'),
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -84,7 +85,7 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => env('MAIL_USERNAME', 'ccbcdcb6f224ce'),
 
     /*
     |--------------------------------------------------------------------------
@@ -97,7 +98,7 @@ return [
     |
     */
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('MAIL_PASSWORD', '7ad210d0196bb5'),
 
     /*
     |--------------------------------------------------------------------------
