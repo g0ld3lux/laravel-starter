@@ -5,20 +5,30 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+import './bootstrap'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the body of the page. From here, you may begin adding components to
  * the application, or feel free to tweak this setup for your needs.
  */
-import App from './App.vue';
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-default/index.css';
+import Vue from 'vue'
+import App from './App.vue'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+import VueLocalStorage from './services/ls'
+import 'babel-polyfill'
 
-Vue.use(ElementUI);
+Vue.use(ElementUI)
+Vue.use(VueLocalStorage)
 
-const app = new Vue({
+new Vue({
+  localStorage: {
+    auth: {
+      type: Boolean,
+      default: false
+    }
+  },
   el: '#app',
   render: h => h(App)
-});
+})

@@ -22,11 +22,7 @@
     // "eslint-config-standard"
     // "eslint-plugin-html"
     
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "vue"
-    ],
+    "eslint.validate": [ "javascript", "javascriptreact", { "language": "html", "autoFix": true } ],
     "workbench.iconTheme": null,
     // Auto rename HTML tags
     "auto-rename-tag.activationOnLanguage": [
@@ -45,7 +41,8 @@
     },
     "search.exclude": {
         "**/vendor/**": true
-    }
-    
-    
+    },
+    "stylelint.enable": true,
+    "css.validate": false
+
 }

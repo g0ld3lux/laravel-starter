@@ -25,11 +25,9 @@ class LoginController extends Controller
         } catch (JWTException $e) {
             throw new HttpException(500);
         }
-
         return response()
             ->json([
-                'status' => 'ok',
-                'token' => $token
-            ]);
+                'status' => 'ok'
+            ])->header('Authorization','Bearer ' . $token);
     }
 }

@@ -6,7 +6,7 @@
   export default {
     data () {
       return {
-        msg: 'This is a Example~!'
+        msg: 'Your Very First Component is an Example One!'
       }
     }
   }

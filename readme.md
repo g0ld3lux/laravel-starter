@@ -141,25 +141,22 @@ localhost:8000/api/*
 
 - Note : I Assume you have NODE in your Machine as well as NPM 
 
+### Enable BrowserSync
+
+```
+npm run watch or npm run watch poll
+```
+
 ### Enable Hot Reloading & Browserync
 
 ```
 npm run hot
-npm run watch
 ```
-
-Note: npm run hot is on port 8080 , which is being proxy properly by laravel mix in your scripts
-
-Whenever we change something in our vue files or js files in our resources then it is refresh
-
-but if we want also browsersync then we also use npm run watch 
-
-Which Refresh when you update your blade files
 
 ### Visit Site
 
 ```
-localhost:3000 
+localhost:3000 or laravel.dev:3000
 ```
 
 
@@ -343,4 +340,24 @@ password = password
   "status": "ok",
   "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6XC9cL2FwaS5sYXJhdmVsLmRldlwvYXV0aFwvbG9naW4iLCJpYXQiOjE0ODkzMzI1OTcsImV4cCI6MTQ4OTM5NzM5NywibmJmIjoxNDg5MzMyNTk3LCJqdGkiOiJjODMxNTMzZjkzMGFiOTkzMGExMzhkMGNkOTI5NGI3ZCJ9.3v-cGtXA-ySmL67pp4kZ4U4Mf3v7ge_CzUEdWIRKSeM"
 }
+```
+
+- Returning a response with cookie
+
+Note: our SESSION_DOMAIN=.laravel.dev
+```
+
+$name = 'samplecookie';
+$value = 'my-cookie';
+$minutes = 60;
+$path = '/';
+$domain = 'api.laravel.dev';
+$secure = false;
+$httpOnly =false;
+return response()
+->json([
+    'status' => 'ok',
+    'token' => $token
+])->header('Authorization','Bearer ' . $token)
+->withCookie($name, $value, $minutes, $path, $domain, $secure, $httpOnly);
 ```

@@ -1,21 +1,4 @@
-const { mix } = require('laravel-mix');
-/*
- |--------------------------------------------------------------------------
- | Customize Your Webpack Config
- |--------------------------------------------------------------------------
- |
- |
- */
-mix.webpackConfig({
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader'
-      },
-    ]
-  }
-});
+const { mix } = require('laravel-mix')
 
 /*
  |--------------------------------------------------------------------------
@@ -44,7 +27,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
   |--------------------------------------------------------------------------
   |
   */
-   .sourceMaps();
+   .sourceMaps()
   /*
   |--------------------------------------------------------------------------
   | Only Set Mix During Production
@@ -52,8 +35,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
   |
   |
   */
-if (mix.config.inProduction){
-  mix.version();
+if (mix.config.inProduction) {
+  mix.version()
 }
   /*
   |--------------------------------------------------------------------------
@@ -63,8 +46,12 @@ if (mix.config.inProduction){
   |
   */
 mix.browserSync({
-  proxy: 'element-ui.dev'
-});
+  proxy: 'laravel.dev',
+  open: false,
+  notify: false,
+  reloadDelay: 2000,
+  reloadDebounce: 2000
+})
   /*
   |--------------------------------------------------------------------------
   | Disable Notification
@@ -72,4 +59,4 @@ mix.browserSync({
   |
   |
   */
-mix.disableNotifications();
+mix.disableNotifications()
