@@ -10,6 +10,7 @@ export default new Vuex.Store({
     account: account,
     modules: {
       // Nested Module for Account
+      // Maybe Settings
     }
   }
 })
