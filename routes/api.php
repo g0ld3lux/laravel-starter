@@ -37,6 +37,8 @@ $api->version('v1',['middleware' => ['api.auth', 'bindings','jwt.auth'], 'scopes
 $api->version('v1', function ($api) {
 $api->group(['prefix' => 'auth'], function($api) {
         $api->post('signup', 'Api\V1\Auth\Controllers\SignUpController@signUp');
+        $api->get('check', 'Api\V1\Auth\Controllers\LoginController@check');
+        $api->get('logout', 'Api\V1\Auth\Controllers\LoginController@logout');
         $api->post('login', 'Api\V1\Auth\Controllers\LoginController@login');
         $api->post('recover', 'Api\V1\Auth\Controllers\ForgotPasswordController@sendResetEmail');
         $api->post('reset', 'Api\V1\Auth\Controllers\ResetPasswordController@resetPassword');

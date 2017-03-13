@@ -7,10 +7,10 @@ import account from './modules/account/store'
 
 export default new Vuex.Store({
   modules: {
-    account: account,
-    modules: {
-      // Nested Module for Account
-      // Maybe Settings
-    }
+    account: account
+    // modules: {
+        // // Nested Module for Account
+        // // Such as Settings
+    // }
   }
 })

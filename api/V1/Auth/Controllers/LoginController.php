@@ -30,4 +30,29 @@ class LoginController extends Controller
                 'status' => 'ok'
             ])->header('Authorization','Bearer ' . $token);
     }
+
+    public function check(JWTAuth $auth)
+    {
+        try {
+            $auth->parseToken()->authenticate();
+        } catch (JWTException $e) {
+            return response(['authenticated' => false]);
+        }
+        return response(['authenticated' => true]);
+    }
+
+    public function logout(JWTAuth $auth)
+    {
+
+        try {
+            $token = $auth->getToken();
+            if ($token) {
+                $auth->invalidate($token);
+            }
+
+        } catch (JWTException $e) {
+            return response()->json($e->getMessage(), 401);
+        }
+        return response()->json(['message' => 'Log out success'], 200);
+    }
 }

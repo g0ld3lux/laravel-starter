@@ -1,34 +1,42 @@
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * include Vue and Vue Resource. This gives a great starting point for
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-import './bootstrap'
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the body of the page. From here, you may begin adding components to
- * the application, or feel free to tweak this setup for your needs.
- */
 import Vue from 'vue'
-import App from './App.vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
-import VueLocalStorage from './services/ls'
 import 'babel-polyfill'
-
+import router from './router'
+import { sync } from 'vuex-router-sync'
+import store from './vuex/store'
+import storage from './services/ls'
 Vue.use(ElementUI)
-Vue.use(VueLocalStorage)
+Vue.use(storage)
+sync(store, router)
 
+// When We Log In We Need to Get the Token and Store it In Local Storage
 new Vue({
   localStorage: {
-    auth: {
-      type: Boolean,
-      default: false
+    token: {
+      type: String
     }
   },
-  el: '#app',
-  render: h => h(App)
-})
+  methods: {
+    getToken () {
+      this.$localStorage.set('token', this.randomString(5))
+    },
+    randomString (length) {
+      var text = ''
+      var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+      for (var i = 0; i < length; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length))
+      }
+      return text
+    }
+  },
+  router,
+  store,
+  mounted () {
+    this.getToken()
+  },
+  created () {
+    console.log(this.$localStorage.get('token'))
+  }
+}).$mount('#app')
+

@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 
 Route::get('reset_password/{token}', ['as' => 'password.reset', function($token)
 {
     // implement your reset password route here!
     return 'password reset view';
 }]);
+
+Route::get('/{vue?}', function () {
+    return view('welcome');
+})->where('vue', '[\/\w\.-]*')->name('home');
